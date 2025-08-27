@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="warning">УВАГА: Ви заходите на територію підвищеної небезпеки. Продовжуючи перегляд, ви погоджуєтесь з умовами.</div>
+
+  <div id="warning">
+    УВАГА: Ви заходите на територію підвищеної небезпеки. Продовжуючи перегляд, ви погоджуєтесь з умовами.
+  </div>
 
   <header>
     <h1>Мисливці за привидами</h1>
@@ -22,32 +25,86 @@
   </div>
 
   <main>
-    <section class="service">
-      <h2>Наші послуги</h2>
-      <p>Виявлення, документування та нейтралізація паранормальних проявів.</p>
+    
+    <section id="main">
+      <section class="service">
+        <h2>Наші послуги</h2>
+        <p>Виявлення, документування та нейтралізація паранормальних проявів.</p>
+      </section>
+
+      <section class="evidence">
+        <h2>Докази</h2>
+        <img src="https://cs8.pikabu.ru/post_img/big/2016/01/31/5/1454225657193264120.jpg" alt="Доказ аномалії">
+      </section>
+
+      <section class="actions">
+        <h2>Дії</h2>
+        <div class="buttons">
+          <button type="button" onclick="showSection('call-team')">Викликати команду</button>
+          <button type="button" onclick="showSection('send-evidence')">Передати доказ</button>
+          <button type="button" onclick="showSection('report-danger')">Повідомити про небезпеку</button>
+        </div>
+      </section>
+
+      <section class="actions">
+  <h2>Наш інструментарій</h2>
+  <div class="buttons">
+    <a href="artefacts.html" class="btn">Артефакти</a>
+    <a href="cleaning.html" class="btn">Придбати очищення</a>
+    <a href="ritual.html" class="btn">Провести обряд</a>
+  </div>
+</section>
+
+      <section id="status-log">
+        Лог системи: очікування нових повідомлень...
+      </section>
     </section>
 
-    <section class="evidence">
-      <h2>Докази</h2>
-      <img src=https://cs8.pikabu.ru/post_img/big/2016/01/31/5/1454225657193264120.jpg alt="Доказ аномалії">
+    
+    <section id="call-team" hidden>
+      <h2>Викликати команду</h2>
+      <form onsubmit="return false;">
+        <input type="text" placeholder="Ваше ім'я"><br>
+        <input type="text" placeholder="Місце інциденту"><br>
+        <input type="text" placeholder="Контактний телефон"><br>
+        <button type="submit">Відправити</button>
+      </form>
+      <button type="button" onclick="showSection('main')">← Назад</button>
     </section>
 
-    <section class="actions">
-      <h2>Дії</h2>
-      <div class="buttons">
-        <button>Викликати команду</button>
-        <button>Передати доказ</button>
-        <button>Повідомити про небезпеку</button>
-      </div>
+    
+    <section id="send-evidence" hidden>
+      <h2>Передати доказ</h2>
+      <form onsubmit="return false;">
+        <input type="file"><br>
+        <textarea placeholder="Опишіть, що ви бачили..." rows="5"></textarea><br>
+        <button type="submit">Надіслати</button>
+      </form>
+      <button type="button" onclick="showSection('main')">← Назад</button>
     </section>
 
-    <section id="status-log">
-      Лог системи: очікування нових повідомлень...
+    
+    <section id="report-danger" hidden>
+      <h2>Повідомити про небезпеку</h2>
+      <form onsubmit="return false;">
+        <input type="text" placeholder="Місце небезпеки"><br>
+        <textarea placeholder="Опишіть, що відбувається..." rows="5"></textarea><br>
+        <button type="submit">Надіслати</button>
+      </form>
+      <button type="button" onclick="showSection('main')">← Назад</button>
     </section>
   </main>
 
   <footer>
     2025 Мисливці за привидами. Всі права захищено.
   </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('main > section').forEach(s => s.hidden = true);
+      document.getElementById(id).hidden = false;
+    }
+  </script>
+
 </body>
 </html>
