@@ -145,7 +145,7 @@ input::placeholder, textarea::placeholder {
   color: #ccc;
 }
 
-button[type="submit"] {
+button[type="submit"],button[type="button"], .btn {
   background-color: black;
   border: 2px solid #f44336;
   color: #f44336;
@@ -154,10 +154,15 @@ button[type="submit"] {
   cursor: pointer;
   margin-top: 10px;
   transition: all 0.3s;
+  text-decoration: none;
 }
 
-button[type="submit"]:hover {
+
+
+button[type="submit"]:hover, button[type="button"]:hover, .btn:hover {
   background-color: #f44336;
   color: black;
   font-weight: bold;
 }
+
+

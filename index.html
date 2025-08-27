@@ -1,110 +1,168 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <title>Мисливці за привидами</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <div id="warning">
-    УВАГА: Ви заходите на територію підвищеної небезпеки. Продовжуючи перегляд, ви погоджуєтесь з умовами.
-  </div>
-
-  <header>
-    <h1>Мисливці за привидами</h1>
-    <div class="subtitle">Справжня організація. Жодних жартів.</div>
-  </header>
-
-  <div id="news-ticker">
-    <div class="ticker-content">
-      <span>Новий випадок у покинутій школі</span>
-      <span>Зникнення в лісі — підозра на паранормальне</span>
-      <span>Попередження: не відвідувати стару шахту</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Мисливці за привидами</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="warning">
+      УВАГА: Ви заходите на територію підвищеної небезпеки.
+      Продовжуючи перегляд, ви погоджуєтесь з умовами.
     </div>
-  </div>
 
-  <main>
-    
-    <section id="main">
-      <section class="service">
-        <h2>Наші послуги</h2>
-        <p>Виявлення, документування та нейтралізація паранормальних проявів.</p>
+    <header>
+      <h1>Мисливці за привидами</h1>
+      <div class="subtitle">Справжня організація. Жодних жартів.</div>
+    </header>
+
+    <div id="news-ticker">
+      <div class="ticker-content">
+        <span>Новий випадок у покинутій школі</span>
+        <span>Зникнення в лісі — підозра на паранормальне</span>
+        <span>Попередження: не відвідувати стару шахту</span>
+      </div>
+    </div>
+
+    <main>
+      <section id="main">
+        <section class="service">
+          <h2>Наші послуги</h2>
+          <p>
+            Виявлення, документування та нейтралізація паранормальних
+            проявів.
+          </p>
+        </section>
+
+        <section class="evidence">
+          <h2>Докази</h2>
+          <img
+            src="https://cs8.pikabu.ru/post_img/big/2016/01/31/5/1454225657193264120.jpg"
+            alt="Доказ аномалії"
+          />
+        </section>
+
+        <section class="actions">
+          <h2>Дії</h2>
+          <div class="buttons">
+            <button type="button" onclick="showSection('call-team')">
+              Викликати команду
+            </button>
+            <button
+              type="button"
+              onclick="showSection('send-evidence')"
+            >
+              Передати доказ
+            </button>
+            <button
+              type="button"
+              onclick="showSection('report-danger')"
+            >
+              Повідомити про небезпеку
+            </button>
+          </div>
+        </section>
+
+        <section class="actions">
+          <h2>Наш інструментарій</h2>
+          <div class="buttons">
+            <a
+              href="https://socportal.info/ua/news/top-10-naistrashnishikh-istorii-pro-prividiv/"
+              class="btn"
+              >Історії</a
+            >
+            <a href="artifacts.html" class="btn">Артефакти</a>
+            <a
+              href="https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D1%96%D1%8F:%D0%9F%D1%80%D0%B8%D0%B2%D0%B8%D0%B4%D0%B8"
+              class="btn"
+              >Види привидів</a
+            >
+          </div>
+        </section>
+
+        <section id="status-log">
+          Лог системи: очікування нових повідомлень...
+        </section>
       </section>
 
-      <section class="evidence">
-        <h2>Докази</h2>
-        <img src="https://cs8.pikabu.ru/post_img/big/2016/01/31/5/1454225657193264120.jpg" alt="Доказ аномалії">
+      <section id="call-team" hidden>
+        <h2>Викликати команду</h2>
+        <form onsubmit="return true;">
+          <input type="text" placeholder="Ваше ім'я" /><br />
+          <input type="text" placeholder="Місце інциденту" /><br />
+          <input type="text" placeholder="Контактний телефон" /><br />
+          <button type="submit" onclick="CallTeam()">
+            Відправити
+          </button>
+        </form>
+        <button type="button" onclick="showSection('main')">
+          ← Назад
+        </button>
       </section>
 
-      <section class="actions">
-        <h2>Дії</h2>
-        <div class="buttons">
-          <button type="button" onclick="showSection('call-team')">Викликати команду</button>
-          <button type="button" onclick="showSection('send-evidence')">Передати доказ</button>
-          <button type="button" onclick="showSection('report-danger')">Повідомити про небезпеку</button>
-        </div>
+      <section id="send-evidence" hidden>
+        <h2>Передати доказ</h2>
+        <form onsubmit="return true;">
+          <input type="file" /><br />
+          <textarea
+            placeholder="Опишіть, що ви бачили..."
+            rows="5"
+          ></textarea
+          ><br />
+          <button type="submit" onclick="sendevidence()">
+            Надіслати
+          </button>
+        </form>
+        <button type="button" onclick="showSection('main')">
+          ← Назад
+        </button>
       </section>
 
-      <section class="actions">
-  <h2>Наш інструментарій</h2>
-  <div class="buttons">
-    <a href="artefacts.html" class="btn">Артефакти</a>
-    <a href="cleaning.html" class="btn">Придбати очищення</a>
-    <a href="ritual.html" class="btn">Провести обряд</a>
-  </div>
-</section>
-
-      <section id="status-log">
-        Лог системи: очікування нових повідомлень...
+      <section id="report-danger" hidden>
+        <h2>Повідомити про небезпеку</h2>
+        <form onsubmit="return true;">
+          <input type="text" placeholder="Місце небезпеки" /><br />
+          <textarea
+            placeholder="Опишіть, що відбувається..."
+            rows="5"
+          ></textarea
+          ><br />
+          <button type="submit" onclick="ReportDanger()">
+            Надіслати
+          </button>
+        </form>
+        <button type="button" onclick="showSection('main')">
+          ← Назад
+        </button>
       </section>
-    </section>
+    </main>
 
-    
-    <section id="call-team" hidden>
-      <h2>Викликати команду</h2>
-      <form onsubmit="return false;">
-        <input type="text" placeholder="Ваше ім'я"><br>
-        <input type="text" placeholder="Місце інциденту"><br>
-        <input type="text" placeholder="Контактний телефон"><br>
-        <button type="submit">Відправити</button>
-      </form>
-      <button type="button" onclick="showSection('main')">← Назад</button>
-    </section>
+    <footer>2025 Мисливці за привидами. Всі права захищено.</footer>
 
-    
-    <section id="send-evidence" hidden>
-      <h2>Передати доказ</h2>
-      <form onsubmit="return false;">
-        <input type="file"><br>
-        <textarea placeholder="Опишіть, що ви бачили..." rows="5"></textarea><br>
-        <button type="submit">Надіслати</button>
-      </form>
-      <button type="button" onclick="showSection('main')">← Назад</button>
-    </section>
+    <script>
+      function showSection(id) {
+        document
+          .querySelectorAll("main > section")
+          .forEach((s) => (s.hidden = true));
+        document.getElementById(id).hidden = false;
+      }
 
-    
-    <section id="report-danger" hidden>
-      <h2>Повідомити про небезпеку</h2>
-      <form onsubmit="return false;">
-        <input type="text" placeholder="Місце небезпеки"><br>
-        <textarea placeholder="Опишіть, що відбувається..." rows="5"></textarea><br>
-        <button type="submit">Надіслати</button>
-      </form>
-      <button type="button" onclick="showSection('main')">← Назад</button>
-    </section>
-  </main>
-
-  <footer>
-    2025 Мисливці за привидами. Всі права захищено.
-  </footer>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('main > section').forEach(s => s.hidden = true);
-      document.getElementById(id).hidden = false;
-    }
-  </script>
-
-</body>
+      function sendevidence() {
+        alert(
+          "Дякуємо, ми переглянемо надіслані докази протягом 24годин. Залишайтесь на зв'язку!"
+        );
+      }
+      function CallTeam() {
+        alert(
+          "Команда вже виїхала за вказаною адресою. Залишайтесь в безпеці!"
+        );
+      }
+      function ReportDanger() {
+        alert(
+          "Дякуємо, ми розглянемо ваше повідомлення найближчим часом."
+        );
+      }
+    </script>
+    <script src="main.js"></script>
+  </body>
 </html>
